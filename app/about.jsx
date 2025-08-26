@@ -1,20 +1,19 @@
-import { StyleSheet, Text, View, useColorScheme } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
-import { Colors } from "../constants/Colors";
+
+// Themed Components
+import ThemedView from "../components/ThemedView";
+import ThemedText from "../components/ThemedText";
 
 const About = () => {
-
-  const colorScheme = useColorScheme();
-  const theme = Colors[colorScheme] ?? Colors.light; // null veya undefined olursa eğer Colors.light yani sağ taraf seçilir. ?? bu anlama geliyor
-
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text style={styles.title}>About Page</Text>
+    <ThemedView style={styles.container}>
+      <ThemedText style={styles.title}>About Page</ThemedText>
       <Link href="/" style={styles.link}>
-        Home Page
+        <ThemedText>Home Page</ThemedText>
       </Link>
-    </View>
+    </ThemedView>
   );
 };
 
