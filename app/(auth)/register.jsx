@@ -1,4 +1,4 @@
-import { StyleSheet, Text } from "react-native";
+import { Keyboard, StyleSheet, Text, TouchableWithoutFeedback } from "react-native";
 import React, { useState } from "react";
 import { Link } from "expo-router";
 
@@ -18,37 +18,39 @@ const Register = () => {
   };
 
   return (
-    <ThemedView style={styles.container}>
-      <Spacer />
-      <ThemedText title={true} style={styles.title}>
-        Register For an Account
-      </ThemedText>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <ThemedView style={styles.container}>
+        <Spacer />
+        <ThemedText title={true} style={styles.title}>
+          Register For an Account
+        </ThemedText>
 
-      <ThemedTextInput
-        style={{ width: "80%", marginBottom: 20 }}
-        placeholder="Email"
-        keyboardType="email-address"
-        onChangeText={setEmail}
-        value={email}
-      />
+        <ThemedTextInput
+          style={{ width: "80%", marginBottom: 20 }}
+          placeholder="Email"
+          keyboardType="email-address"
+          onChangeText={setEmail}
+          value={email}
+        />
 
-      <ThemedTextInput
-        style={{ width: "80%", marginBottom: 20 }}
-        placeholder="Password"
-        onChangeText={setPassword}
-        value={password}
-        secureTextEntry
-      />
+        <ThemedTextInput
+          style={{ width: "80%", marginBottom: 20 }}
+          placeholder="Password"
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry
+        />
 
-      <ThemedButton onPress={handleSubmit}>
-        <Text style={{ color: "#f2f2f2" }}>Register</Text>
-      </ThemedButton>
+        <ThemedButton onPress={handleSubmit}>
+          <Text style={{ color: "#f2f2f2" }}>Register</Text>
+        </ThemedButton>
 
-      <Spacer height={100} />
-      <Link href="/login">
-        <ThemedText style={{ textAlign: "center" }}>Login Instead</ThemedText>
-      </Link>
-    </ThemedView>
+        <Spacer height={100} />
+        <Link href="/login">
+          <ThemedText style={{ textAlign: "center" }}>Login Instead</ThemedText>
+        </Link>
+      </ThemedView>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -1,6 +1,7 @@
 import { StyleSheet, Text } from "react-native";
 import React, { useState } from "react";
 import { Link } from "expo-router";
+import { useUser } from "../../hooks/useUser";
 
 // Themed Components
 import ThemedView from "../../components/ThemedView";
@@ -13,7 +14,10 @@ const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
+  const { user } = useUser()
+
   const handleSubmit = () => {
+    console.log("current user: ", user)
     console.log("login form submitted", email, password);
   };
 
